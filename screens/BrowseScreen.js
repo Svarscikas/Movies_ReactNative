@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {
+StyleSheet,Text,View,SafeAreaView,SectionList,StatusBar,} from 'react-native';
+  
 import PopularMovies from '../components/organisms/popularMovies';
 export default function BrowseScreen() {
 
@@ -6,7 +8,7 @@ export default function BrowseScreen() {
         <View style={styles.container}>
             <View style={{flex:3, justifyContent:"center"}}>
                 <Text style={{paddingLeft: 20}}>Popular Movies</Text>
-                <PopularMovies/>
+                <PopularMovies type={"popular"}/>
             </View>  
             <View style={{flex: 3}}>
                 <Text>Categories</Text>
@@ -19,12 +21,21 @@ export default function BrowseScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 30,
-  },
-});
+    container: {
+      flex: 1,
+      paddingTop: StatusBar.currentHeight,
+      marginHorizontal: 16,
+    },
+    item: {
+      backgroundColor: '#f9c2ff',
+      padding: 20,
+      marginVertical: 8,
+    },
+    header: {
+      fontSize: 32,
+      backgroundColor: '#fff',
+    },
+    title: {
+      fontSize: 24,
+    },
+  });
