@@ -32,7 +32,7 @@ export default function PopularMovies({type, id}) {
     };
     useEffect(() => {
         getPopularMovies();
-    }, []);
+    }, [id]);
 
     return (
         <View style={{paddingBottom: 10, alignContent:"center", paddingTop: 10, alignItems: "center", justifyContent: "center"}}>
@@ -50,10 +50,11 @@ export default function PopularMovies({type, id}) {
                                 <Text onPress={() => navigation.navigate("Details", {
                                     title: item.title,
                                     description: item.overview,
-                                    id: item.id,
+                                    movieId: item.id,
                                 })}>
                                     {item.title}
                                 </Text>
+                                
                             </View>
                             
                         )}   
