@@ -62,7 +62,7 @@ export default function PopularMovies({type, id}) {
                                         movieId: item.id,
                                     })}>
                                     <MyImage imageSource={item.backdrop_path}></MyImage>
-                                    <Text>
+                                    <Text style={{textAlign:"center", fontSize:16}}>
                                         {item.title}
                                     </Text>
                                 </TouchableOpacity>
