@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonText: {
-    color: 'lightblue', // Customize the button text color here
+    color: 'black', // Customize the button text color here
     fontSize: 16,
   },
 });

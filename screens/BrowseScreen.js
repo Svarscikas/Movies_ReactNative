@@ -1,22 +1,18 @@
 import {
-StyleSheet,Text,View,SafeAreaView,SectionList,StatusBar,} from 'react-native';
+StyleSheet,Text,View,SafeAreaView,SectionList,StatusBar,ScrollView} from 'react-native';
   
 import PopularMovies from '../components/organisms/popularMovies';
 export default function BrowseScreen() {
 
     return (
-        <View style={styles.container}>
-            <View style={{flex:3, justifyContent:"center"}}>
-                <Text style={{paddingLeft: 20}}>Popular Movies</Text>
+        <ScrollView>
+                <Text style={styles.title}>Popular Movies</Text>
                 <PopularMovies type={"popular"}/>
-            </View>  
-            <View style={{flex: 3}}>
-                <Text>Categories</Text>
-            </View>
-            <View style={{flex: 3}}>
-                <Text>Categories</Text>
-            </View>
-        </View>
+                <Text style={styles.title}>Upcoming Movies</Text>
+                <PopularMovies type={"latest"}/>
+                <Text style={styles.title}>Top Rated Movies</Text>
+                <PopularMovies type={"topRated"}></PopularMovies>
+        </ScrollView>
     );
 }
 
@@ -37,5 +33,7 @@ const styles = StyleSheet.create({
     },
     title: {
       fontSize: 24,
+      paddingLeft: 20, 
+      paddingTop: 10
     },
   });
