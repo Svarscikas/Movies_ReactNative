@@ -21,8 +21,10 @@ export default function PlayerScreen({route}) {
             setErrors(error);
         }
         finally{
-            if(json.results)
-                setVideoLink(json.results[0].key);        
+            if(!json.results.length)
+                setErrors("No video");
+            else
+                setVideoLink(json.results[0].key);    
         }
     }
     useEffect(() =>{

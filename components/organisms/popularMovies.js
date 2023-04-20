@@ -48,8 +48,7 @@ export default function PopularMovies({type, id}) {
             }
         } catch (error) {
           setErrors(error);
-        } finally {
-            
+        } finally {  
           setLoading(false);
           setPopularMovies(json.results);
         }
@@ -66,19 +65,12 @@ export default function PopularMovies({type, id}) {
             </View>
         )
     }
-    if(!popularMovies.length) {
-        return(
-                <Text style={{fontSize : 16, textAlign: "center", padding: 10}}>
-                    No movies in the list
-                </Text>
-        )
-        
-    }
+    
     else{
         return (
             <View style={{paddingBottom: 10, alignContent:"center", paddingTop: 10, alignItems: "center", justifyContent: "center"}}>
                         {isLoading ? (
-                        <ActivityIndicator />
+                        <ActivityIndicator size={"large"} />
                         ) : (
                         <FlatList
                             data={popularMovies}
