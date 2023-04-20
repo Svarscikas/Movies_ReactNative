@@ -8,7 +8,7 @@ export default function BrowseScreen() {
         <ScrollView>
                 <Text style={styles.title}>Popular Movies</Text>
                 <PopularMovies type={"popular"}/>
-                <Text style={styles.title}>Upcoming Movies</Text>
+                <Text style={styles.title}>Now Playing</Text>
                 <PopularMovies type={"latest"}/>
                 <Text style={styles.title}>Top Rated Movies</Text>
                 <PopularMovies type={"topRated"}></PopularMovies>
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
     title: {
       fontSize: 24,
       paddingLeft: 20, 
-      paddingTop: 10
+      paddingTop: 10,
+      paddingBottom: 10,
+      backgroundColor:"lightblue"
     },
   });

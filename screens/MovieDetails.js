@@ -16,7 +16,7 @@ export default function MovieDetails({route}) {
                     id: movieId
                 })}></Button>
                 <Button title="Add To Library"></Button>
-                <Text style= {{fontSize: 24,paddingLeft: 20, paddingTop: 10}}>Similiar movies</Text>
+                <Text style= {{fontSize: 24,paddingLeft: 20, paddingTop: 10}}>Similiar movies {movieId}</Text>
                 <PopularMovies type="similiar" id={movieId}/>
             </View>
         </View>

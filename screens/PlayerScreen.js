@@ -6,31 +6,32 @@ import constants from "../constants";
 export default function PlayerScreen({route}) {
     
     const [videoLink, setVideoLink] = useState("");
-    const [error, setError] = useState("");
+    const [errors, setErrors] = useState("");
     const {id} = route.params;
     const getData = async ()=> {
         try {
-            //console.log('https://api.themoviedb.org/3/movie/'+ id +'/videos?api_key='+ constants.API_Key + '&language=en-US')
             const response = await fetch('https://api.themoviedb.org/3/movie/'+ id +'/videos?api_key='+ constants.API_Key + '&language=en-US')
             var json = await response.json();
+            
             if(json.status_message){
-                setError(json.status_message);
+                setErrors(json.status_message);
             }
         }
         catch(error) {
-            setError(error);
+            setErrors(error);
         }
         finally{
-            setVideoLink(json.results[0].key);
+            if(json.results)
+                setVideoLink(json.results[0].key);        
         }
     }
     useEffect(() =>{
         getData()
     },[])
-    if(error){
+    if(errors){
         return (
             <View style={{flex:1,justifyContent:"center"}}>
-                <Text style={{fontSize:16, textAlign:"center"}}>{error}</Text>
+                <Text style={{fontSize:16, textAlign:"center"}}>{errors}</Text>
             </View>
         )
     }

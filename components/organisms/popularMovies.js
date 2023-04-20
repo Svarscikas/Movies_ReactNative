@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function PopularMovies({type, id}) {
     const [popularMovies, setPopularMovies] = useState([]);
-    const [error, setError] = useState("");
+    const [errors, setErrors] = useState("");
     const navigation = useNavigation();
     const [isLoading, setLoading] = useState(true);
 
@@ -18,7 +18,7 @@ export default function PopularMovies({type, id}) {
                 const response = await fetch( constants.Base_URL + '3/movie/popular?api_key=' +constants.API_Key + '&language=en-US&page=1');
                 json = await response.json();
                 if(json.status_message){
-                    setError(json.status_message);
+                    setErrors(json.status_message);
                 } 
             }
             if(type == "similiar") {
@@ -26,25 +26,28 @@ export default function PopularMovies({type, id}) {
                 const response = await fetch('https://api.themoviedb.org/3/movie/'+ id +'/similar?api_key='+ constants.API_Key+ '&language=en-US&page=1');
                 json = await response.json();
                 if(json.status_message){
-                    setError(json.status_message);
+                    setErrors(json.status_message);
                 }
             }
             if(type == "latest") {
-                const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=0839f265b7b8e52c2ec1711623246e99&language=en-US&page=1');
+                const response = await fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0839f265b7b8e52c2ec1711623246e99&language=en-US&page=1');
                 json = await response.json();
-                if(json.status_message){
-                    setError(json.status_message);
+                if(json.status_message || json.errors){
+                    setErrors(json.status_message);
                 }
             }   
             if(type == "topRated") {
                 const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=0839f265b7b8e52c2ec1711623246e99&language=en-US&page=1');
                 json = await response.json();
                 if(json.status_message){
-                    setError(json.status_message);
+                    setErrors(json.status_message);
+                }
+                if(json.errors) {
+                    setErrors(json.errors)
                 }
             }
         } catch (error) {
-          setError(error);
+          setErrors(error);
         } finally {
             
           setLoading(false);
@@ -54,14 +57,22 @@ export default function PopularMovies({type, id}) {
     useEffect(() => {
         getPopularMovies();
     }, [id]);
-    if(error) {
+    if(errors) {
         return(
             <View style={{flex:1, justifyContent:"center"}}>
                 <Text style={{fontSize: 16, textAlign:"center"}}>
-                    {error}
+                    {errors}
                 </Text>
             </View>
         )
+    }
+    if(!popularMovies.length) {
+        return(
+                <Text style={{fontSize : 16, textAlign: "center", padding: 10}}>
+                    No movies in the list
+                </Text>
+        )
+        
     }
     else{
         return (
@@ -82,10 +93,13 @@ export default function PopularMovies({type, id}) {
                                             movieId: item.id,
                                         })}>
                                         <MyImage imageSource={item.backdrop_path}></MyImage>
-                                        <Text style={{textAlign:"center", fontSize:16}}>
+                                        <Text style={{textAlign:"center", fontSize:16, fontWeight:"bold"}}>
                                             {item.title}
+                                            
                                         </Text>
+                                        
                                     </TouchableOpacity>
+                                    <Text style={{fontSize:12}}>{item.release_date}</Text>
                                     
                                     
                                 </View>
