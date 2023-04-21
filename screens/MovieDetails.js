@@ -7,11 +7,11 @@ import constants from "../constants";
 export default function MovieDetails({route}) {
     const navigation = useNavigation();
     //const win = Dimensions.get('window');
-    const {description, title, movieId, year, poster} = route.params;
+    const {description, title, movieId, year, posterLink} = route.params;
     return(
             <ScrollView>
                 <View>
-                    <ImageBackground style={{width:'100%', aspectRatio:0.65}} source={{uri:'https://image.tmdb.org/t/p/w500' + poster}}>
+                    <ImageBackground style={{width:'100%', aspectRatio:0.65}} source={{uri:'https://image.tmdb.org/t/p/w500' + posterLink}}>
                         <View style={{ flex:1,backgroundColor:'rgba(0, 0, 0, 0.5)', paddingTop:20, paddingBottom:20}}>
                             <View style>
                                 <Text style={{color: "white",fontSize:20, fontWeight:"bold", textAlign: "center"}}>{title}</Text>
