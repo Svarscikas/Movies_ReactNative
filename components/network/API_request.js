@@ -21,7 +21,7 @@ export const fetchTopRatedMovies = async () => {
   // Fetch API logic here
 };
 export const fetchLatestMovies = async () => {
-  const url = `${constants.Base_URL}/movie/now_playing?api_key=${constants.API_Key}&language=en-US&page=1`;
+  const url = `${constants.Base_URL}movie/now_playing?api_key=${constants.API_Key}&language=en-US&page=1`;
   const response = await fetch(url);
   return response.json();
   // Fetch API logic here

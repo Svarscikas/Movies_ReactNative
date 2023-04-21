@@ -9,9 +9,9 @@ export default function HomeScreen({navigation}) {
       <View style={{flex: 2}}>
         <Text style={styles.title}>Flexn Presents</Text>
         </View>
-      <View style={{flex: 4, gap:20}}>
+      <View style={{flex: 4}}>
         <Button title="Browse" onPress={() => navigation.navigate("Browse")}></Button>
-        <Button title="Login"></Button>
+        <Button title="Login" onPress={()=> navigation.navigate("Login")}></Button>
       </View>
       
       

@@ -21,7 +21,7 @@ export default function PlayerScreen({route}) {
         }
         finally{
             if(!json.results.length)
-                setErrors("No video");
+                setErrors("Couldn't find any trailers for this movie");
             else
                 setVideoLink(json.results[0].key);    
         }

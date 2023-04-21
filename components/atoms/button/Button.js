@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     width: 200,
-    margin: 10,
   },
   buttonText: {
     color: 'white', // Customize the button text color here
@@ -35,8 +34,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     width: 200,
-    margin: 10,
-
+    marginVertical: 10
   }
 });
 

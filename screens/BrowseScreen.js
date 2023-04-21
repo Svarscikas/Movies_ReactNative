@@ -1,5 +1,4 @@
-import {
-StyleSheet,Text,View,SafeAreaView,SectionList,StatusBar,ScrollView} from 'react-native';
+import { StyleSheet,Text, StatusBar, ScrollView} from 'react-native';
   
 import PopularMovies from '../components/organisms/popularMovies';
 export default function BrowseScreen() {
