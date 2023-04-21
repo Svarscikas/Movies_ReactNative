@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text, ImageBackground, Dimensions, ScrollView } from "react-native";
+import { View, Text, ImageBackground,ScrollView } from "react-native";
 import PopularMovies from "../components/organisms/popularMovies";
 import Button from '../components/atoms/button/Button';
 import { useNavigation } from '@react-navigation/native';
-import constants from "../constants";
+
 export default function MovieDetails({route}) {
     const navigation = useNavigation();
-    //const win = Dimensions.get('window');
     const {description, title, movieId, year, posterLink} = route.params;
     return(
             <ScrollView>
@@ -16,7 +15,7 @@ export default function MovieDetails({route}) {
                             <View style>
                                 <Text style={{color: "white",fontSize:20, fontWeight:"bold", textAlign: "center"}}>{title}</Text>
                                 <Text style={{color: "white",textAlign: "center"}}>{year}</Text>
-                                <Text style={{color: "white",textAlign: "center",paddingHorizontal:20}}>{description}</Text>
+                                <Text style={{color: "white",textAlign: "center", paddingHorizontal:20}}>{description}</Text>
                             </View>
                             <View style={{alignItems: "center", padding: 10}}>
                                 <Button title="Play Trailer" onPress={() => navigation.navigate("Trailer", {

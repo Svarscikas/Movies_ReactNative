@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { WebView } from 'react-native-webview';
 import { useState,useEffect } from "react";
 import constants from "../constants";
+import { fetchMovieVideos } from "../components/network/API_request";
 export default function PlayerScreen({route}) {
     
     const [videoLink, setVideoLink] = useState("");
@@ -10,9 +11,7 @@ export default function PlayerScreen({route}) {
     const {id} = route.params;
     const getData = async ()=> {
         try {
-            const response = await fetch('https://api.themoviedb.org/3/movie/'+ id +'/videos?api_key='+ constants.API_Key + '&language=en-US')
-            var json = await response.json();
-            
+            var json = await fetchMovieVideos(id);
             if(json.status_message){
                 setErrors(json.status_message);
             }

@@ -1,5 +1,5 @@
 import {useEffect, useState,} from "react";
-import { ActivityIndicator, FlatList, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View, Image, TouchableOpacity } from 'react-native';
 import MovieItem from "../molecules/movieItem";
 import {fetchLatestMovies, fetchPopularMovies, fetchSimiliarMovies, fetchTopRatedMovies} from "../network/API_request";
 

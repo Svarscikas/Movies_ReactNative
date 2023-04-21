@@ -26,3 +26,8 @@ export const fetchLatestMovies = async () => {
   return response.json();
   // Fetch API logic here
 };
+export const fetchMovieVideos = async (id) => {
+  const url = `${constants.Base_URL}/movie/${id}/videos?api_key=${constants.API_Key}&language=en-US`
+  const response = await fetch(url);
+  return response.json()
+}
