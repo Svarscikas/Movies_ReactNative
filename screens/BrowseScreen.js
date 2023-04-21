@@ -26,15 +26,11 @@ const styles = StyleSheet.create({
       padding: 20,
       marginVertical: 8,
     },
-    header: {
-      fontSize: 32,
-      backgroundColor: '#fff',
-    },
     title: {
       fontSize: 24,
       paddingLeft: 20, 
       paddingTop: 10,
       paddingBottom: 10,
-      backgroundColor:"lightblue"
+      backgroundColor:"lightblue",
     },
   });
