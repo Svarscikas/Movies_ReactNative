@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const button = ({ title, onPress }) => {
   return (
-    <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
+    <TouchableOpacity style={styles.transparentContainer} onPress={onPress}>
       <Text style={styles.buttonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -22,9 +22,22 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonText: {
-    color: 'black', // Customize the button text color here
+    color: 'white', // Customize the button text color here
     fontSize: 16,
   },
+  transparentContainer:{
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: 'darkgray',
+    borderWidth: 1,
+    borderRadius: 5,
+    width: 200,
+    margin: 10,
+
+  }
 });
 
 export default button;

@@ -83,6 +83,8 @@ export default function PopularMovies({type, id}) {
                                             title: item.title,
                                             description: item.overview,
                                             movieId: item.id,
+                                            year: item.release_date,
+                                            poster: item.poster_path
                                         })}>
                                         <MyImage imageSource={item.backdrop_path}></MyImage>
                                         <Text style={{textAlign:"center", fontSize:16, fontWeight:"bold"}}>
