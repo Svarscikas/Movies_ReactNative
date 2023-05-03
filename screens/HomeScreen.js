@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View, Alert } from 'react-native';
 import Button from '../components/atoms/button/Button';
 
 export default function HomeScreen({navigation}) {
@@ -11,7 +11,7 @@ export default function HomeScreen({navigation}) {
         </View>
       <View style={{flex: 4}}>
         <Button title="Browse" onPress={() => navigation.navigate("Browse")}></Button>
-        <Button title="Login" onPress={()=> navigation.navigate("Login")}></Button>
+        <Button title="Login" onPress={()=> Alert.alert("Not implemented yet.")}></Button>
       </View>
       
       

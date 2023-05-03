@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ImageBackground,ScrollView, StyleSheet } from "react-native";
+import { View, Text, ImageBackground,ScrollView, StyleSheet, Alert } from "react-native";
 import PopularMovies from "../components/organisms/popularMovies";
 import Actors from "../components/organisms/actors";
 import Button from '../components/atoms/button/Button';
@@ -8,6 +8,11 @@ import { useNavigation } from '@react-navigation/native';
 export default function MovieDetails({route}) {
     const navigation = useNavigation();
     const {description, title, movieId, year, posterLink} = route.params;
+
+    const handleClick = () => {
+        Alert.alert("Not implmemented yet.")
+    }
+
     return(
             <ScrollView>
                 <View>
@@ -22,7 +27,7 @@ export default function MovieDetails({route}) {
                                 <Button title="Play Trailer" onPress={() => navigation.navigate("Trailer", {
                                     id: movieId
                                 })}></Button>
-                                <Button title="Add To Library"></Button>
+                                <Button onPress={handleClick} title="Add To Library"></Button>
                             </View>
                         </View>
                     </ImageBackground>
@@ -38,6 +43,7 @@ export default function MovieDetails({route}) {
                 </View>
             </ScrollView>
     )
+    
 }
 const styles = StyleSheet.create({
     title: {
