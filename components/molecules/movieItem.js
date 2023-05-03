@@ -13,7 +13,7 @@ export default function MovieItem(props) {
                     year: props.release_date,
                     posterLink: props.poster_path
                 })}>
-            <MyImage imageSource={props.backdrop_path}></MyImage>
+            <MyImage type="movie"imageSource={props.backdrop_path}></MyImage>
             <Text style={{textAlign:"center", fontSize:16, fontWeight:"bold"}}>
                 {props.title}     
             </Text>              

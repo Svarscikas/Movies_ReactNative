@@ -29,5 +29,10 @@ export const fetchLatestMovies = async () => {
 export const fetchMovieVideos = async (id) => {
   const url = `${constants.Base_URL}/movie/${id}/videos?api_key=${constants.API_Key}&language=en-US`
   const response = await fetch(url);
-  return response.json()
+  return response.json();
+}
+export const fetchCastAndCrew = async (id) => {
+  const url= `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${constants.API_Key}&language=en-US`
+  const response = await fetch(url);
+  return response.json();
 }
